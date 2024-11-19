@@ -1,0 +1,66 @@
+nav, div, main, section{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+main{
+    border-color: red;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+    /* When working with a row, justify-content is the horizontal axis 
+       When working with a column, justify-content is the vertical axis */
+    /* align-items: flex-end; */
+    /* When working with a row, align-items is the vertical axis 
+       When working with a column, align-ites is the horizontal axis */
+    gap: 15px;
+    /* height: 100px; */
+    /* Working with a row flex-start means: left 
+                          center: center
+                          flex-end: right
+    */
+    flex-wrap: wrap;
+}
+
+/*
+.nav-item{
+    flex: 1;
+}
+
+.special-item{
+    flex: 5;
+}
+*/
+
+main{
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+}
+
+.left-menu{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    gap: 15px;
+    /*justify-content: center;*/
+}
+/*
+.menu-item{
+    width: 100px;
+    height: 100px;
+}
+*/
+.main-content{
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-item{
+    flex: 1;
+}
