@@ -1,16 +1,29 @@
 
-let form = document.querySelector('#dogImagesForm');
+const dogForm = document.querySelector('.dogForm');
 
-form.addEventListener('submit', function(event){
+dogForm.addEventListener('submit', async function (event){
     event.preventDefault();
-    const numOfImages = document.querySelector('#numOfImages').value;
-
-    const URL = `https://dog.ceo/api/breeds/image/random/${numOfImages}`;
-    const settings = {
-        method: 'GET'
+    
+    const numOfDogs = document.querySelector('#numerOfImages').value;
+    const URL = "https://dog.ceo/api/breeds/image/random/" + numOfDogs;
+    
+    try{
+      const response = await fetch(URL);  
+      const data = await response.json();
+      const results = document.querySelector('.results');
+            results.innerHTML = "";
+            for(let i = 0; i < data.message.length; i ++){
+                results.innerHTML += `
+                    <img src="${data.message[i]}" alt="Dog image" >
+                `;
+            }
+    }
+    catch(error){
+        console.log("Something went wrong", error);
     }
 
-    fetch(URL, settings)
+    /*
+    fetch(URL)
         .then(function(response){
             return response.json();
         })
@@ -18,8 +31,13 @@ form.addEventListener('submit', function(event){
             const results = document.querySelector('.results');
             results.innerHTML = "";
             for(let i = 0; i < data.message.length; i ++){
-                results.innerHTML += `<img class="dogImage" src="${data.message[i]}" alt="Image of a dog" />`;
+                results.innerHTML += `
+                    <img src="${data.message[i]}" alt="Dog image" >
+                `;
             }
+        })
+        .catch(function(error){
+            console.log("Something went wrong", error);
         });
-
+    */
 });
