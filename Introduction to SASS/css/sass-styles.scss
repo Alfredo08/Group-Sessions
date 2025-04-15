@@ -1,0 +1,75 @@
+/* Variables */
+$title-font-size: 40px;
+$text-color: green;
+
+h1{
+    font-size: $title-font-size;
+}
+
+h2{
+    font-size: $title-font-size;
+    color: $text-color;
+}
+
+li{
+    color: $text-color;
+} 
+
+/* Nesting */
+.navbar{
+    background-color: aqua;
+
+    .menu{
+        color: blue;
+
+        li{
+            padding: 50px;
+        }
+    }
+}
+
+.product{
+    p{
+        background-color: rgb(114, 114, 114);
+        &.extra-size{
+            color: white;
+        }
+        &.extra-size:hover{
+            background-color: black;
+        }
+    }
+}
+
+/* Inheritance */
+h1{
+    color: $text-color;
+    font-style: italic;
+    background-color: cornflowerblue;
+}
+
+.extra-size{
+    @extend h1;
+    border: 8px dotted blue;
+}
+
+/* Mixin */
+@mixin theme($color, $backgroud, $font, $border){
+    color: $color;
+    background-color: $backgroud;
+    font-size: $font;
+    border-color: $border;
+    border-width: 5px;
+    border-style: solid;
+}
+
+.item-one{
+    @include theme(white, black, 20px, red);
+}
+
+.item-two{
+    @include theme(aqua, gray, 40px, blue);
+}
+
+.item-four{
+    @include theme(green, blue, 60px, yellow);
+}
