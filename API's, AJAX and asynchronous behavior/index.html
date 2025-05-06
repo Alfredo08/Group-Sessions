@@ -3,17 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> API's and AJAX </title>
+        <title> Dog CEO API </title>
+        <link href="./css/styles.css" rel="stylesheet">
     </head>
     <body>
-        <h1> Dog CEO API Images </h1>
-        <form class="dogForm">
-            <label for="numerOfImages">
-                Number of dogs:
-            </label>
-            <input id="numerOfImages" type="number">
+        <h1> Dog CEO API </h1>
+        <form class="dogInfo">
+            <div>
+                <label for="numberOfDogs">
+                    How many dogs you want?
+                </label>
+                <input type="number" id="numberOfDogs">
+            </div>
             <button>
-                Get the images
+                Get the dogs
             </button>
         </form>
         <div class="results"></div>

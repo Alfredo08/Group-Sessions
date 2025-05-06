@@ -1,43 +1,32 @@
 
-const dogForm = document.querySelector('.dogForm');
+let dogInfoForm = document.querySelector('.dogInfo');
 
-dogForm.addEventListener('submit', async function (event){
+dogInfoForm.addEventListener('submit', function(event){
     event.preventDefault();
+
+    let numberOfDogs = document.querySelector('#numberOfDogs').value;
+    let URL = "https://dog.ceo/api/breeds/image/random/" + numberOfDogs;
     
-    const numOfDogs = document.querySelector('#numerOfImages').value;
-    const URL = "https://dog.ceo/api/breeds/image/random/" + numOfDogs;
-    
-    try{
-      const response = await fetch(URL);  
-      const data = await response.json();
-      const results = document.querySelector('.results');
-            results.innerHTML = "";
-            for(let i = 0; i < data.message.length; i ++){
-                results.innerHTML += `
-                    <img src="${data.message[i]}" alt="Dog image" >
-                `;
-            }
-    }
-    catch(error){
-        console.log("Something went wrong", error);
+    let settings = {
+        method: "GET",
     }
 
-    /*
-    fetch(URL)
+    fetch(URL, settings)
         .then(function(response){
-            return response.json();
+            if(response.ok){
+                return response.json();
+            }
+            throw new Error("Something went wrong " + response.statusText);
         })
         .then(function(data){
-            const results = document.querySelector('.results');
-            results.innerHTML = "";
+            let results = document.querySelector('.results');
+            results.innerHTML = ""; // Clearing the container of results
+
             for(let i = 0; i < data.message.length; i ++){
-                results.innerHTML += `
-                    <img src="${data.message[i]}" alt="Dog image" >
-                `;
+                results.innerHTML += `<img class="dogImage" src="${data.message[i]}" alt="Dog image" >`;
             }
         })
         .catch(function(error){
-            console.log("Something went wrong", error);
+            console.log(error);
         });
-    */
 });
