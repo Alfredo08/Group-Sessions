@@ -3,8 +3,7 @@ import './App.css';
 import Student from './components/Student';
 import AppContext from './AppContext';
 
-const App = () => {
-
+const App = ()  => {
   const defaultStudent = {
     firstName: "Alex",
     lastName: "Miller",
@@ -12,34 +11,38 @@ const App = () => {
     courses: ["WF-001", "PY-001"]
   }
 
-  const defaultCourses = [{
-    name: "Web fundamentals",
-    programmingLanguages: ["HTML", "CSS", "JavaScript"],
-    id: "WF-001",
-    mentors: [123, 456]
-  },
-  {
-    name: "Python for web developers",
-    programmingLanguages: ["Python", "Django"],
-    id: "PY-001",
-    mentors: [123, 789]
-  }];
+  const defaultCourses = [
+    {
+      name: "Web Fundamentals",
+      programmingLanguages: ["HTML", "CSS", "JavaScript"],
+      id: "WF-001",
+      mentors: [123, 456]
+    },
+    {
+      name: "Python for web developers",
+      programmingLanguages: ["Python", "Django", "SQL"],
+      id: "PY-001",
+      mentors: [123, 789]
+    }
+  ];
 
-  const defaultMentors = [{
+  const defaultMentors = [
+    {
+      id: 123,
       fullName: "Alfredo Salazar",
-      yearsOfExperience: 15,
-      id: 123
+      yearsOfExperience: 15
     },
     {
+      id: 456,
       fullName: "Martha Smith",
-      yearsOfExperience: 12,
-      id: 456
+      yearsOfExperience: 12
     },
     {
+      id: 789,
       fullName: "Roger Anderson",
-      yearsOfExperience: 25,
-      id: 789
-    }];
+      yearsOfExperience: 25
+    }
+  ];
 
   const [studentInfo, setStudentInfo] = useState(defaultStudent);
   const [listOfCourses, setListOfCourses] = useState(defaultCourses);
@@ -48,14 +51,14 @@ const App = () => {
   const contextValues = {
     student: studentInfo,
     courses: listOfCourses,
-    mentors: listOfMentors
-  }
+    metnors: listOfMentors
+  }; 
 
   return (
     <>
-      <h1>React context demo </h1>
+      <h1> Context demo </h1>
       <AppContext.Provider value={contextValues}>
-        <Student />
+        <Student/>
       </AppContext.Provider>
     </>
   );

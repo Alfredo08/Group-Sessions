@@ -2,26 +2,21 @@ import { useContext } from "react";
 import Mentor from "./Mentor";
 import AppContext from "../AppContext";
 
-const Course = ({courseId}) => {
+const Course = (props) => {
     const context = useContext(AppContext);
-    const course = context.courses.find((course) => course.id === courseId);
-    return (
+    const course = context.courses.find((course) => course.id === props.courseId);
+
+    return(
         <>
-            <h3> Course </h3>
+            <h2> Course </h2>
             <ul>
-                <li>
-                    Name: {course.name}
-                </li>
-                <li>
-                    Programming Languages: {course.programmingLanguages}
-                </li>
+                <li> {course.name} </li>
+                <li> {course.programmingLanguages} </li>
             </ul>
             <div>
                 {course.mentors.map((mentorId, index) => {
-                    return(
-                        <Mentor key={index}
-                                mentorId={mentorId}/>
-                    )
+                    return( <Mentor mentorId={mentorId}
+                                    key={index} /> )
                 })}
             </div>
         </>

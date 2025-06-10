@@ -3,7 +3,8 @@ import { createContext } from "react";
 const AppContext = createContext({
     student: {},
     courses: [],
-    mentors: []
+    metnors: []
 });
 
 export default AppContext;
+
