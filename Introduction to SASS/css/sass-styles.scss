@@ -1,19 +1,18 @@
 /* Variables */
 $title-font-size: 40px;
-$text-color: green;
+$main-text-color: green;
 
 h1{
     font-size: $title-font-size;
+    color: $main-text-color;
+    font-style: italic;
+    background-color: cornflowerblue;
 }
 
 h2{
     font-size: $title-font-size;
-    color: $text-color;
+    color: $main-text-color;
 }
-
-li{
-    color: $text-color;
-} 
 
 /* Nesting */
 .navbar{
@@ -31,9 +30,11 @@ li{
 .product{
     p{
         background-color: rgb(114, 114, 114);
+        
         &.extra-size{
             color: white;
         }
+
         &.extra-size:hover{
             background-color: black;
         }
@@ -41,21 +42,15 @@ li{
 }
 
 /* Inheritance */
-h1{
-    color: $text-color;
-    font-style: italic;
-    background-color: cornflowerblue;
-}
-
 .extra-size{
     @extend h1;
     border: 8px dotted blue;
 }
 
 /* Mixin */
-@mixin theme($color, $backgroud, $font, $border){
+@mixin theme($color, $background, $font, $border){
     color: $color;
-    background-color: $backgroud;
+    background-color: $background;
     font-size: $font;
     border-color: $border;
     border-width: 5px;
@@ -72,4 +67,6 @@ h1{
 
 .item-four{
     @include theme(green, blue, 60px, yellow);
+    font-weight: bold;
+    font-style: italic;
 }

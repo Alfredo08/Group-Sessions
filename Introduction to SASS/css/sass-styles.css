@@ -1,14 +1,13 @@
 /* Variables */
 h1, .extra-size {
   font-size: 40px;
+  color: green;
+  font-style: italic;
+  background-color: cornflowerblue;
 }
 
 h2 {
   font-size: 40px;
-  color: green;
-}
-
-li {
   color: green;
 }
 
@@ -34,12 +33,6 @@ li {
 }
 
 /* Inheritance */
-h1, .extra-size {
-  color: green;
-  font-style: italic;
-  background-color: cornflowerblue;
-}
-
 .extra-size {
   border: 8px dotted blue;
 }
@@ -70,6 +63,8 @@ h1, .extra-size {
   border-color: yellow;
   border-width: 5px;
   border-style: solid;
+  font-weight: bold;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=sass-styles.css.map */
